@@ -5,7 +5,9 @@ let copyButton = document.querySelector(".copy-button");
 
 button.addEventListener('click', function () {
     let inputValue = input.value;
-    let replacedText = inputValue.replace(/&/g, '&amp;');
+
+    // Экранируем только необработанные амперсанды
+    let replacedText = inputValue.replace(/&(?!amp;)/g, '&amp;');
     output.textContent = replacedText;
 });
 
